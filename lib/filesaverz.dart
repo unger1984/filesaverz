@@ -1,7 +1,7 @@
 /// Library of [FileSaver].
 ///
 /// A package that makes it easy for user to browse folder and save file or pick files.
-library filesaverz;
+library;
 
 import 'dart:convert';
 import 'dart:io';
@@ -108,7 +108,7 @@ class FileSaver extends StatelessWidget {
   /// );
   /// ```
   FileSaver.builder({
-    Key? key,
+    super.key,
     this.style,
     this.fileTypes,
     this.initialFileName,
@@ -128,8 +128,7 @@ class FileSaver extends StatelessWidget {
         footerBuilder = Consumer<FileSaverState>(
             builder: (context, value, child) => footerBuilder == null
                 ? footer(context: context, state: value)
-                : footerBuilder(context, value)!),
-        super(key: key);
+                : footerBuilder(context, value)!);
 
   /// Default file explorer for [FileSaver].
   ///
@@ -140,7 +139,7 @@ class FileSaver extends StatelessWidget {
   /// );
   /// ```
   FileSaver({
-    Key? key,
+    super.key,
     this.style,
     this.fileTypes,
     this.initialFileName,
@@ -154,8 +153,7 @@ class FileSaver extends StatelessWidget {
                 body(context: context, state: value)),
         footerBuilder = Consumer<FileSaverState>(
             builder: (context, value, child) =>
-                footer(context: context, state: value)),
-        super(key: key);
+                footer(context: context, state: value));
 
   @override
   Widget build(BuildContext context) {
